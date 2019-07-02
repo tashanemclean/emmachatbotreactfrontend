@@ -1,0 +1,30 @@
+@import "./variables.scss";
+@import "./chatWindow.scss";
+@import "./windoModal.scss";
+@import "./imageupload.scss";
+
+html {
+    font-size: 62.5%; // 1rem is 10px
+}
+
+.app {
+    margin-top: 2rem;
+    display: grid;
+    justify-items: center;
+
+    .modal-icon {
+        font-size: 60px;
+        border-radius: 18px;
+        color: $light-color;
+        outline: none;
+        position: relative;
+        bottom: -750%;
+        left: 40%;
+
+        &:hover {
+            color: $message-color;
+        }
+    }
+
+
+}

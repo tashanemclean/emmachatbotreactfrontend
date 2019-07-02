@@ -1,0 +1,112 @@
+.chat {
+    height: 350px;
+    width: 275px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 75);
+    border-radius: 10px;
+    position: relative;
+
+    background-image: linear-gradient(to bottom, white 0%,rgba(255, 255, 255, 0.795) 100%), url("https://res.cloudinary.com/dn20lb2ee/image/upload/v1561401571/mg5ay1e9zq5qeuevzplz.png");
+    background-size: cover;
+
+
+    .bot-profile-name {
+        position: absolute;
+        top: 0;
+        height: 26px;
+        width: 150px;
+        margin-left: 20%;
+        margin-top: 5px;
+        background-color: $off-white;
+        padding: 0px 0px 0px 28px;
+        border-radius: 6px;
+        border: $border;
+        align-items: center;
+
+        .bot-profile-header {
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+    }
+
+    .bot-profile-wrapper {
+        margin-right: 20px;
+        margin-bottom: -90px;
+    }
+    
+    .bot-image-wrapper {
+        padding-left: 10px;
+        margin-bottom: -20px;
+
+
+        img {
+            height: 30px;
+            width: 30px;
+            border-radius: 20px;
+        }
+    }
+
+    .chat-box-response-wrapper {
+        margin-left: 35px;
+        margin-bottom: 20px;
+        background-color: $message-color;
+        padding-right: 30px;
+        border-radius: 12px;
+
+        .bot-response {
+            padding: 5px 5px 5px 5px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: $text-color;
+        }
+    }
+}
+
+.input-wrapper {
+    position: absolute;
+    width: 50%;
+    bottom: 20px;
+}
+
+.input-text-wrapper {
+    margin-left: 45px;
+    position: relative;
+
+    .input-box {
+        border-radius: 5px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        width: 185px;
+        outline: none;
+        height: 40px;
+        padding: 10px;
+        padding-right: 40px;
+        resize: none;
+
+        input.break {
+            word-wrap: break-word;
+            word-break: break-all;
+            height: 80px;
+        }
+    }
+
+    .submit-icon {
+        font-size: 25px;
+        margin-top: 7px;
+        margin-left: 145px;
+        position: absolute;
+        opacity: 0.2;
+        padding-left: 10px;
+    
+        &:hover {
+            opacity: 0.8;
+            color: #81f499;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
+
