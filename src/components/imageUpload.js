@@ -40,7 +40,8 @@ export default class ImageUpload extends Component {
                     <input ref={(ref) => {this.uploadInput = ref}} type='file'/>
                 </div>
                 <div>
-                    <h1> That is a {classified_as}</h1>
+                    <h1> That is a</h1>
+                    {console.log(classified_as)}
                 </div>
                 <br />
                 <div>
