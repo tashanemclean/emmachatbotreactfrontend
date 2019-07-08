@@ -7,17 +7,18 @@
     box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 75);
     border-radius: 10px;
     position: relative;
-
+    overflow: scroll;
     background-image: linear-gradient(to bottom, white 0%,rgba(255, 255, 255, 0.795) 100%), url("https://res.cloudinary.com/dn20lb2ee/image/upload/v1561401571/mg5ay1e9zq5qeuevzplz.png");
     background-size: cover;
+    margin: -48px;
 
 
     .bot-profile-name {
-        position: absolute;
-        top: 0;
+        position: fixed;
+        top: -25px;
         height: 26px;
         width: 150px;
-        margin-left: 20%;
+        margin-left: 14%;
         margin-top: 5px;
         background-color: $off-white;
         padding: 0px 0px 0px 28px;
@@ -29,6 +30,7 @@
             margin-top: 5px;
             margin-left: 5px;
         }
+
     }
 
     .bot-profile-wrapper {
@@ -37,8 +39,8 @@
     }
     
     .bot-image-wrapper {
-        padding-left: 10px;
-        margin-bottom: -20px;
+        padding-left: 3px;
+        margin-bottom: -16px;
 
 
         img {
@@ -54,6 +56,7 @@
         background-color: $message-color;
         padding-right: 30px;
         border-radius: 12px;
+        margin: 14px;
 
         .bot-response {
             padding: 5px 5px 5px 5px;
@@ -64,23 +67,25 @@
             color: $text-color;
         }
     }
+
+
 }
 
 .input-wrapper {
-    position: absolute;
+    position: fixed;
     width: 50%;
     bottom: 20px;
 }
 
 .input-text-wrapper {
-    margin-left: 45px;
     position: relative;
+    right: 0.32%;
 
     .input-box {
-        border-radius: 5px;
+        border-radius: 0px;
         box-sizing: border-box;
         border: 1px solid #ccc;
-        width: 185px;
+        width: 276px;
         outline: none;
         height: 40px;
         padding: 10px;
@@ -101,6 +106,7 @@
         position: absolute;
         opacity: 0.2;
         padding-left: 10px;
+        left: 45%;
     
         &:hover {
             opacity: 0.8;
