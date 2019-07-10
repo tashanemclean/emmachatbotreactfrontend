@@ -49,6 +49,7 @@
             height: 30px;
             width: 30px;
             border-radius: 20px;
+            margin: -4px;
         }
     }
 
@@ -61,47 +62,72 @@
         margin-right: 15px;
 
         p{
-            margin: 11px;
+            margin: 8px;
         }
 
-        
-        .comment-span {
-            font-size: 40px;
-            animation-name: blink;
-            animation-duration: 1.9s;
-            animation-iteration-count: infinite;
-            animation-fill-mode: both;
-    
-            animation-delay: .5s;
-            animation-delay: .5s;
-            height: 0px;
+        .waiting {
+            display: flex;
 
-            @keyframes blink {
-                0% {
-                    opacity: .2;
-                }
-            
-                20% {
-                    opacity: 1;
-                }
-            
-                100% {
-                    opacity: .2;
-                }
+            &__one {
+                @include bot-typing();
+                font-size: 10px;
+                animation-duration: 1.9s;
+                animation-delay: 0.7s;
+                animation-delay: 0.7s;
+                margin: 0px;
+            }
+        
+            &__two {
+                @include bot-typing();
+                font-size: 10px;
+                animation-duration: 1.9s;
+                animation-delay: 0.9s;
+                animation-delay: 0.9s;
+                margin: 0px;
+            }
+        
+            &__three {
+                @include bot-typing();
+                font-size: 10px;
+                animation-duration: 1.9s;
+                animation-delay: 1.2;
+                animation-delay: 1.2s;
+                margin: 0px;
             }
         }
 
-        .bot-response {
-            padding: 5px 5px 5px 5px;
-        }
+        // .comment-span {
+        //     font-size: 40px;
+        //     animation-name: blink;
+        //     animation-duration: 1.9s;
+        //     animation-iteration-count: infinite;
+        //     animation-fill-mode: both;
+        
+        //     animation-delay: .5s;
+        //     animation-delay: .5s;
+        //     height: 0px;
+        
+        //     @keyframes blink {
+        //         0% {
+        //             opacity: .2;
+        //         }
+            
+        //         20% {
+        //             opacity: 1;
+        
+        //         }
+            
+        //         100% {
+        //             opacity: .2;
+        //         }
+        //     }
+        // }
+}
 
-        p {
-            font-size: 1.3rem;
-            color: $text-color;
-        }
-    }
-
-
+p {
+    font-size: 1.3rem;
+    color: $text-color;
+}
 }
 
 .input-wrapper {

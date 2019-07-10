@@ -1,0 +1,23 @@
+@mixin bot-typing {
+    font-size: 40px;
+    animation-name: blink;
+    animation-duration: 1.9s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    height: 0px;
+
+    @keyframes blink {
+        0% {
+            opacity: .2;
+        }
+    
+        20% {
+            opacity: 1;
+
+        }
+    
+        100% {
+            opacity: .2;
+        }
+    }
+}

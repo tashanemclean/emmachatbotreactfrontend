@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faEllipsisH, faShare} from "@fortawesome/fontawesome-free-solid"
+import {faEllipsisH, faShare, faCircle} from "@fortawesome/fontawesome-free-solid"
 
 
 export default class SendMessage extends Component {
@@ -28,9 +28,9 @@ export default class SendMessage extends Component {
         this.scrollToBottom()
     }
 
-    // componentDidUpdate() {
-    //     this.scrollToBottom()
-    // }
+    componentWillUpdate() {
+        this.scrollToBottom()
+    }
 
     clearInput(){
         const usrInput = this.refs.usrInput.value=""
@@ -66,20 +66,20 @@ export default class SendMessage extends Component {
 
     typingInterval = () => {
         this.scrollToBottom()
-        this.typeInt = setInterval(() => {
+        this.YesTyping = setInterval(() => {
             (this.setState({typing: true}))
             }, 1)
     }
 
     notTypingInterval = () => {
-       this.notTypeInt = setInterval(() => {
+       this.notTyping = setInterval(() => {
             (this.setState({typing: false}))            
             }, 4000)
     }
 
     clearIntervals =()=> {
         setInterval(()=> {
-            clearInterval(this.typeInt, this.NotTypeInt)
+            clearInterval(this.YesTyping, this.NotTyping)
         }, 4000)
     }
 
@@ -104,7 +104,11 @@ export default class SendMessage extends Component {
     }
 
     botTyping = () => {
-            return <p className="comment-span" ><FontAwesomeIcon icon={faEllipsisH}/></p>
+        return <div className='waiting'>
+            <p className="waiting__one" ><FontAwesomeIcon icon={faCircle}/></p>
+            <p className="waiting__two" ><FontAwesomeIcon icon={faCircle}/></p>
+            <p className="waiting__three" ><FontAwesomeIcon icon={faCircle}/></p>
+            </div>
         }
     
     botNotTyping = () =>{
@@ -197,7 +201,8 @@ export default class SendMessage extends Component {
                         )
                         }
                         </div>
-                        <div ref={(el) => {this.messagesEnd = el}}></div>
+                        <div ref={(el) => {this.messagesEnd = el}}>
+                        </div>
                     </form>
             </div>
         )
