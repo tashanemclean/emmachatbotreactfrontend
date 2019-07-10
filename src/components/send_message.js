@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faShareSquare, faCommentDots} from "@fortawesome/fontawesome-free-regular"
+import {faEllipsisH, faShare} from "@fortawesome/fontawesome-free-solid"
 
 
 export default class SendMessage extends Component {
@@ -8,7 +8,6 @@ export default class SendMessage extends Component {
         super(props)
 
         this.state = {
-            // usrInput: "",
             image: "../../static/assets/images/botImage.jpg",
             typing: false,
             bot: {
@@ -21,8 +20,21 @@ export default class SendMessage extends Component {
         this.clearInput = this.clearInput.bind(this)
     }
 
+    scrollToBottom = () => {
+        this.messagesEnd.scrollIntoView({ behavior: 'smooth'})
+    }
+
+    componentDidMount() {
+        this.scrollToBottom()
+    }
+
+    // componentDidUpdate() {
+    //     this.scrollToBottom()
+    // }
+
     clearInput(){
         const usrInput = this.refs.usrInput.value=""
+        return usrInput
     }
 
     handleSubmit(event) {
@@ -53,6 +65,7 @@ export default class SendMessage extends Component {
     }
 
     typingInterval = () => {
+        this.scrollToBottom()
         this.typeInt = setInterval(() => {
             (this.setState({typing: true}))
             }, 1)
@@ -60,14 +73,14 @@ export default class SendMessage extends Component {
 
     notTypingInterval = () => {
        this.notTypeInt = setInterval(() => {
-            (this.setState({typing: false}))               
-            }, 6000)
+            (this.setState({typing: false}))            
+            }, 4000)
     }
 
     clearIntervals =()=> {
         setInterval(()=> {
             clearInterval(this.typeInt, this.NotTypeInt)
-        }, 6000)
+        }, 4000)
     }
 
     setTyping = () => {
@@ -91,7 +104,7 @@ export default class SendMessage extends Component {
     }
 
     botTyping = () => {
-            return <p className="comment-span" ><FontAwesomeIcon icon={faCommentDots}/></p>
+            return <p className="comment-span" ><FontAwesomeIcon icon={faEllipsisH}/></p>
         }
     
     botNotTyping = () =>{
@@ -158,7 +171,7 @@ export default class SendMessage extends Component {
                                 onClick={this.handleSubmit} 
                                 >
                                 <FontAwesomeIcon
-                                icon={faShareSquare}
+                                icon={faShare}
                                 />
                                 </a>
                                 <textarea 
@@ -184,6 +197,7 @@ export default class SendMessage extends Component {
                         )
                         }
                         </div>
+                        <div ref={(el) => {this.messagesEnd = el}}></div>
                     </form>
             </div>
         )

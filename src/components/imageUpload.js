@@ -1,6 +1,6 @@
 import React, {Component }from "react"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import { faPaperPlane} from "@fortawesome/fontawesome-free-regular" 
+import {faPaperPlane} from "@fortawesome/fontawesome-free-regular" 
 
 
 export default class ImageUpload extends Component {
@@ -41,7 +41,6 @@ export default class ImageUpload extends Component {
                 </div>
                 <div>
                     <h1> That is a</h1>
-                    {console.log(classified_as)}
                 </div>
                 <br />
                 <div>
