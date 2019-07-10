@@ -29,7 +29,10 @@
         .bot-profile-header {
             margin-top: 5px;
             margin-left: 5px;
+
         }
+
+
 
     }
 
@@ -41,7 +44,6 @@
     .bot-image-wrapper {
         padding-left: 3px;
         margin-bottom: -16px;
-
 
         img {
             height: 30px;
@@ -57,6 +59,38 @@
         padding-right: 30px;
         border-radius: 12px;
         margin: 14px;
+
+        p{
+            margin: 11px;
+        }
+
+        
+        .comment-span {
+            // color: $message-color;
+            font-size: 40px;
+            animation-name: blink;
+            animation-duration: 1.9s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+    
+            animation-delay: .5s;
+            animation-delay: .5s;
+            height: 0px;
+
+            @keyframes blink {
+                0% {
+                    opacity: .2;
+                }
+            
+                20% {
+                    opacity: 1;
+                }
+            
+                100% {
+                    opacity: .2;
+                }
+            }
+        }
 
         .bot-response {
             padding: 5px 5px 5px 5px;
@@ -115,4 +149,3 @@
         }
     }
 }
-
