@@ -1,7 +1,6 @@
 import React , {Component} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faEllipsisH, faShare, faCircle} from "@fortawesome/fontawesome-free-solid"
-
+import {faShare, faCircle} from "@fortawesome/fontawesome-free-solid"
 
 export default class SendMessage extends Component {
     constructor(props){
@@ -18,18 +17,16 @@ export default class SendMessage extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.inputAndResponseToArray = this.inputAndResponseToArray.bind(this)
         this.clearInput = this.clearInput.bind(this)
+        this.handleKeyDown = this.handleKeyDown.bind(this)
     }
 
-    scrollToBottom = () => {
-        this.messagesEnd.scrollIntoView({ behavior: 'smooth'})
+    scrollView =()=> {
+        const element = document.getElementById("form-wrapper")
+        element.scrollBy(2000,1000)
     }
 
-    componentDidMount() {
-        this.scrollToBottom()
-    }
-
-    componentWillUpdate() {
-        this.scrollToBottom()
+    componentDidUpdate(){
+            this.scrollView()
     }
 
     clearInput(){
@@ -44,7 +41,6 @@ export default class SendMessage extends Component {
         this.chatLogs()
         this.clearInput()
         this.setTyping()
-        
     
         fetch ("http://localhost:5000/sendmessage", {
             method: "POST",
@@ -64,26 +60,33 @@ export default class SendMessage extends Component {
         })
     }
 
+    handleKeyDown = (e) => {
+        if(e.key == "Enter" && e.shiftKey == false) {
+            this.handleSubmit(e)
+        }
+    }
+
     typingInterval = () => {
-        this.scrollToBottom()
         this.YesTyping = setInterval(() => {
             (this.setState({typing: true}))
             }, 1)
+            
     }
 
     notTypingInterval = () => {
        this.notTyping = setInterval(() => {
             (this.setState({typing: false}))            
-            }, 4000)
+            }, 5000)
     }
 
     clearIntervals =()=> {
         setInterval(()=> {
             clearInterval(this.YesTyping, this.NotTyping)
-        }, 4000)
+        }, 5000)
     }
 
     setTyping = () => {
+        this.scrollView()
         this.typingInterval()
         this.notTypingInterval()
         this.clearIntervals()
@@ -104,11 +107,11 @@ export default class SendMessage extends Component {
     }
 
     botTyping = () => {
-        return <div className='waiting'>
-            <p className="waiting__one" ><FontAwesomeIcon icon={faCircle}/></p>
-            <p className="waiting__two" ><FontAwesomeIcon icon={faCircle}/></p>
-            <p className="waiting__three" ><FontAwesomeIcon icon={faCircle}/></p>
-            </div>
+        return <div id='waiting'>
+                <p id="waiting__one" ><FontAwesomeIcon icon={faCircle}/></p>
+                <p id="waiting__two" ><FontAwesomeIcon icon={faCircle}/></p>
+                <p id="waiting__three" ><FontAwesomeIcon icon={faCircle}/></p>
+                </div>
         }
     
     botNotTyping = () =>{
@@ -118,11 +121,11 @@ export default class SendMessage extends Component {
     render() {
         const image = this.state.image
         return(
-            <div className="chat">
+            <div id="chat">
                 <div className="bot-profile-name">
                     <p className="bot-profile-header">Emma | Chatbot Assistant</p>
                 </div>
-                    <form onSubmit={this.handleSubmit}>
+                    <form id="form-wrapper" onSubmit={this.handleSubmit} onKeyDown={(e) => {this.handleKeyDown(e)}} style={{"overflow": "scroll", "paddingTop": "24px"}}>
                         {Object.values(this.state.allInput).map((rec, _id) => (
                             <div key={_id} className="chat-two">
                                 <div className="bot-profile-wrapper_two"
@@ -172,7 +175,7 @@ export default class SendMessage extends Component {
                         <div className="input-wrapper">
                             <div className="input-text-wrapper">
                                 <a className="submit-icon" 
-                                onClick={this.handleSubmit} 
+                                onClick={this.handleSubmit}
                                 >
                                 <FontAwesomeIcon
                                 icon={faShare}
@@ -192,7 +195,7 @@ export default class SendMessage extends Component {
                                 }} src={image}
                                 />
                         </div>
-                        <div className="chat-box-response-wrapper">
+                        <div id="chat-box-response-wrapper">
                         { this.state.typing == true ?
                         (
                         this.botTyping()
@@ -201,11 +204,8 @@ export default class SendMessage extends Component {
                         )
                         }
                         </div>
-                        <div ref={(el) => {this.messagesEnd = el}}>
-                        </div>
                     </form>
             </div>
         )
     }
 }
-

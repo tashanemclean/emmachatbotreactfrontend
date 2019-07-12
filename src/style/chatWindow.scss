@@ -1,13 +1,12 @@
-.chat {
+#chat {
     height: 350px;
     width: 275px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 75);
-    border-radius: 10px;
     position: relative;
-    overflow: scroll;
+    // overflow: scroll;
     background-image: linear-gradient(to bottom, white 0%,rgba(255, 255, 255, 0.795) 100%), url("https://res.cloudinary.com/dn20lb2ee/image/upload/v1561401571/mg5ay1e9zq5qeuevzplz.png");
     background-size: cover;
     margin: -48px;
@@ -49,11 +48,10 @@
             height: 30px;
             width: 30px;
             border-radius: 20px;
-            margin: -4px;
         }
     }
 
-    .chat-box-response-wrapper {
+    #chat-box-response-wrapper {
         margin-left: 48px;
         margin-bottom: 20px;
         background-color: $message-color;
@@ -65,7 +63,7 @@
             margin: 8px;
         }
 
-        .waiting {
+        #waiting {
             display: flex;
 
             &__one {
@@ -138,7 +136,7 @@ p {
 
 .input-text-wrapper {
     position: relative;
-    right: 0.32%;
+    right: .09%;
 
     .input-box {
         border-radius: 0px;
