@@ -65,7 +65,6 @@ export default class App extends Component {
     return (
       <div className='app'>
         <h1>Emma | IBM Watson Assistant Chatbot</h1>
-        <ImageUpload />
         <h2>React Redux Router</h2>
         <a className="modal-icon" onClick={this.handleModalOpen}><FontAwesomeIcon icon={faCommentAlt}/></a>
         <Modal 

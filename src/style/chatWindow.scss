@@ -11,6 +11,20 @@
     background-size: cover;
     margin: -48px;
 
+    .image-load-wrapper{
+        .image-loader {
+            text-align: center;
+            background-color: #E1E1E1;
+            border-radius: 5px;
+            min-height: 60px;
+            border: 2px dashed #C7C7C7;
+
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
 
     .bot-profile-name {
         position: fixed;
@@ -93,33 +107,6 @@
                 margin: 0px;
             }
         }
-
-        // .comment-span {
-        //     font-size: 40px;
-        //     animation-name: blink;
-        //     animation-duration: 1.9s;
-        //     animation-iteration-count: infinite;
-        //     animation-fill-mode: both;
-        
-        //     animation-delay: .5s;
-        //     animation-delay: .5s;
-        //     height: 0px;
-        
-        //     @keyframes blink {
-        //         0% {
-        //             opacity: .2;
-        //         }
-            
-        //         20% {
-        //             opacity: 1;
-        
-        //         }
-            
-        //         100% {
-        //             opacity: .2;
-        //         }
-        //     }
-        // }
 }
 
 p {
@@ -137,6 +124,17 @@ p {
 .input-text-wrapper {
     position: relative;
     right: .09%;
+
+    .paper-clip {
+        margin-left: 240px;
+        font-size: 20px;
+        color: $text-color;
+
+        &:hover {
+            color: $light-color;
+            font-size: 28px;
+        }
+    }
 
     .input-box {
         border-radius: 0px;

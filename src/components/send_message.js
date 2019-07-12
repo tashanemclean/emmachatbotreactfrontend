@@ -1,12 +1,14 @@
 import React , {Component} from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faShare, faCircle} from "@fortawesome/fontawesome-free-solid"
+import {faShare, faCircle, faPaperclip} from "@fortawesome/fontawesome-free-solid"
+import ImageUpload from './imageUpload';
 
 export default class SendMessage extends Component {
     constructor(props){
         super(props)
 
         this.state = {
+            show: false,
             image: "../../static/assets/images/botImage.jpg",
             typing: false,
             bot: {
@@ -18,6 +20,7 @@ export default class SendMessage extends Component {
         this.inputAndResponseToArray = this.inputAndResponseToArray.bind(this)
         this.clearInput = this.clearInput.bind(this)
         this.handleKeyDown = this.handleKeyDown.bind(this)
+        this.handleVisible = this.handleVisible.bind(this)
     }
 
     scrollView =()=> {
@@ -118,10 +121,21 @@ export default class SendMessage extends Component {
         return <p className="bot-response">{this.state.bot.botResponse}</p>
     }
 
+    handleVisible() {
+        this.setState({
+            show: !this.state.show
+        })
+    }
+
     render() {
         const image = this.state.image
         return(
             <div id="chat">
+                <div className="image-load-wrapper"style={{ display: this.state.show ? "block": "none"}}> 
+                    <div className="image-loader">
+                        <ImageUpload />
+                    </div>
+                </div>
                 <div className="bot-profile-name">
                     <p className="bot-profile-header">Emma | Chatbot Assistant</p>
                 </div>
@@ -174,6 +188,8 @@ export default class SendMessage extends Component {
                         ))}
                         <div className="input-wrapper">
                             <div className="input-text-wrapper">
+                                <a className="paper-clip" onClick={()=> this.handleVisible()}><FontAwesomeIcon icon={faPaperclip}/>
+                                </a>
                                 <a className="submit-icon" 
                                 onClick={this.handleSubmit}
                                 >
